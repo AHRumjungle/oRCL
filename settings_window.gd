@@ -64,6 +64,10 @@ func _on_file_dialog_file_selected(path: String) -> void:
 	
 	self.get_parent().refreshAllList() # Calls the function from the root
 	updatePathLabel()
+	
+	#Deselect any previous rides
+	DB.selectRideForLog = -1
+	self.get_parent().updateSelectedRideButton()
 	pass
 
 # ------

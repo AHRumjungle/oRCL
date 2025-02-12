@@ -11,3 +11,6 @@
 
 #Database Refrence
 *.sqbpro
+
+#vscode
+.vscode/

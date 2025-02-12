@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://crmbsi8oxvcai"]
+
+[ext_resource type="Script" path="res://browse_log.gd" id="1_71tf4"]
+[ext_resource type="Texture2D" uid="uid://bro2me2842c7l" path="res://resources/gradiant.png" id="2_hinea"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_71tf4")
+
+[node name="bk" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_hinea")
+
+[node name="backButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.05
+anchor_right = 0.01
+anchor_bottom = 0.05
+offset_right = 100.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
+text = "Back"
+
+[node name="searchText" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Search Logs"
+
+[node name="searchButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.99
+anchor_top = 0.05
+anchor_right = 0.99
+anchor_bottom = 0.05
+offset_left = -100.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
+text = "Search
+"
+
+[node name="itemList" type="ItemList" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.15
+anchor_right = 0.9
+anchor_bottom = 0.95
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+
+[node name="searchNotesCheck" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.11
+anchor_right = 0.5
+anchor_bottom = 0.11
+offset_left = -75.0
+offset_right = 44.0
+offset_bottom = 14.4
+theme_override_font_sizes/font_size = 20
+text = "	Search Notes"
+
+[node name="moreInfoWindow" type="AcceptDialog" parent="."]
+title = "More Info"
+initial_position = 1
+size = Vector2i(400, 400)
+ok_button_text = "Close"
+dialog_autowrap = true
+
+[connection signal="button_down" from="backButton" to="." method="_on_back_button_button_down"]
+[connection signal="button_down" from="searchButton" to="." method="_on_search_button_button_down"]
+[connection signal="item_selected" from="itemList" to="." method="_on_item_list_item_selected"]
+[connection signal="confirmed" from="moreInfoWindow" to="." method="_on_more_info_window_confirmed"]

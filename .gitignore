@@ -1,0 +1,13 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+#Database and Save Files
+*.db
+*.save
+
+#Binary Export Folder
+/Export/
+
+#Database Refrence
+*.sqbpro

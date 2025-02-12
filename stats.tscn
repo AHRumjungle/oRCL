@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://i7i6qmq6f64m"]
+
+[ext_resource type="Script" path="res://stats.gd" id="1_ehdl7"]
+[ext_resource type="Texture2D" uid="uid://bro2me2842c7l" path="res://resources/gradiant.png" id="2_o8ev2"]
+
+[node name="Stats" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ehdl7")
+
+[node name="backButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.05
+anchor_right = 0.01
+anchor_bottom = 0.05
+offset_right = 100.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
+text = "Back"
+
+[node name="title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 0.05
+theme_override_font_sizes/font_size = 30
+text = "Stats"
+horizontal_alignment = 1
+
+[node name="statsLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_font_sizes/font_size = 20
+text = "Stats
+Stats
+Stats
+"
+horizontal_alignment = 1
+
+[node name="bk" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_o8ev2")
+
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

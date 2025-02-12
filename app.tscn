@@ -1,0 +1,343 @@
+[gd_scene load_steps=6 format=3 uid="uid://cogr0xqd351ot"]
+
+[ext_resource type="Script" path="res://app.gd" id="1_xhjy7"]
+[ext_resource type="FontFile" uid="uid://xj8h8yv6c2b6" path="res://fonts/Eightgon.ttf" id="2_l5c8q"]
+[ext_resource type="Texture2D" uid="uid://diehpkcv6o45u" path="res://resources/settings.svg" id="3_5ian1"]
+[ext_resource type="Script" path="res://settings_window.gd" id="4_am8ig"]
+[ext_resource type="Texture2D" uid="uid://bro2me2842c7l" path="res://resources/gradiant.png" id="5_ue0j7"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xhjy7")
+
+[node name="bk" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_ue0j7")
+
+[node name="title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 0.05
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_l5c8q")
+theme_override_font_sizes/font_size = 50
+text = "oRCL
+"
+horizontal_alignment = 1
+
+[node name="feedbackLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.21
+anchor_right = 0.7
+anchor_bottom = 0.24
+theme_override_font_sizes/font_size = 20
+text = "Feedback Label"
+horizontal_alignment = 1
+
+[node name="timer" type="Timer" parent="feedbackLabel"]
+wait_time = 3.0
+
+[node name="logRideButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.15
+anchor_right = 0.5
+anchor_bottom = 0.15
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
+text = "Log Ride"
+
+[node name="queryRide" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.25
+anchor_right = 0.5
+anchor_bottom = 0.25
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 20
+text = "No Ride Selected"
+
+[node name="logNotes" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.35
+anchor_right = 0.5
+anchor_bottom = 0.75
+offset_left = -125.0
+offset_right = 125.0
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Notes"
+wrap_mode = 1
+
+[node name="addRideWindowButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.15
+anchor_right = 0.05
+anchor_bottom = 0.15
+offset_right = 100.0
+offset_bottom = 50.0
+text = "Add Ride"
+
+[node name="addLocationWindowButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.25
+anchor_right = 0.05
+anchor_bottom = 0.25
+offset_right = 110.0
+offset_bottom = 50.0
+text = "Add Location"
+
+[node name="browseLogsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95
+anchor_top = 0.15
+anchor_right = 0.95
+anchor_bottom = 0.15
+offset_left = -100.0
+offset_bottom = 50.0
+grow_horizontal = 0
+text = "Browse Logs"
+
+[node name="statsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95
+anchor_top = 0.25
+anchor_right = 0.95
+anchor_bottom = 0.25
+offset_left = -100.0
+offset_bottom = 50.0
+grow_horizontal = 0
+text = "Stats"
+
+[node name="settingsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.8
+offset_left = -16.0
+offset_top = -16.0
+icon = ExtResource("3_5ian1")
+
+[node name="addRideWindow" type="Window" parent="."]
+title = "Add Ride To DB"
+initial_position = 1
+size = Vector2i(400, 450)
+visible = false
+
+[node name="addRideName" type="TextEdit" parent="addRideWindow"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 50.0
+placeholder_text = "Ride Name"
+
+[node name="addRideDes" type="TextEdit" parent="addRideWindow"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.25
+anchor_right = 0.5
+anchor_bottom = 0.25
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 50.0
+placeholder_text = "Ride Description"
+
+[node name="addRideLoc" type="OptionButton" parent="addRideWindow"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.45
+anchor_right = 0.5
+anchor_bottom = 0.45
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 50.0
+alignment = 1
+
+[node name="addRideButton" type="Button" parent="addRideWindow"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.7
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 50.0
+text = "Add Ride To DB"
+
+[node name="isCreditButton" type="CheckButton" parent="addRideWindow"]
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.6
+anchor_right = 0.2
+anchor_bottom = 0.6
+offset_right = 44.0
+offset_bottom = 24.0
+button_pressed = true
+text = "Count Ride in Credit Count"
+
+[node name="confLabel" type="Label" parent="addRideWindow"]
+anchors_preset = -1
+anchor_top = 0.9
+anchor_right = 1.0
+anchor_bottom = 0.95
+offset_left = -54.5
+offset_top = -11.5
+offset_right = 54.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Confirm Label"
+horizontal_alignment = 1
+
+[node name="addLocationWindow" type="Window" parent="."]
+title = "Add Location"
+initial_position = 1
+size = Vector2i(400, 400)
+visible = false
+
+[node name="addLocationFullName" type="TextEdit" parent="addLocationWindow"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 50.0
+placeholder_text = "Location Full Name"
+
+[node name="addLocationShortName" type="TextEdit" parent="addLocationWindow"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.25
+anchor_right = 0.5
+anchor_bottom = 0.25
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 50.0
+placeholder_text = "Location Short Name"
+
+[node name="addLocationButton" type="Button" parent="addLocationWindow"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.45
+anchor_right = 0.5
+anchor_bottom = 0.45
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 50.0
+text = "Add Location to DB"
+
+[node name="confLabel" type="Label" parent="addLocationWindow"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.65
+anchor_right = 0.5
+anchor_bottom = 0.65
+offset_left = -75.0
+offset_bottom = 23.0
+text = "Confirmation Label"
+horizontal_alignment = 1
+
+[node name="settingsWindow" type="Window" parent="."]
+title = "Settings"
+initial_position = 1
+size = Vector2i(400, 400)
+visible = false
+script = ExtResource("4_am8ig")
+
+[node name="resetDatabaseButton" type="Button" parent="settingsWindow"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+text = "Reset Database"
+
+[node name="resetDbWindow" type="ConfirmationDialog" parent="settingsWindow/resetDatabaseButton"]
+title = "Rest Database"
+initial_position = 1
+size = Vector2i(350, 150)
+ok_button_text = "Reset"
+dialog_text = "Do you want to reset the database? 
+Reseting the database will delete all data and quit the app."
+dialog_autowrap = true
+
+[node name="changeDatabaseButton" type="Button" parent="settingsWindow"]
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.1
+text = "Change Database"
+
+[node name="FileDialog" type="FileDialog" parent="settingsWindow/changeDatabaseButton"]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(400, 400)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.db")
+use_native_dialog = true
+
+[node name="currentPath" type="Label" parent="settingsWindow"]
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.2
+text = "Current Database Path: "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="timeout" from="feedbackLabel/timer" to="." method="_on_label_timer_timeout"]
+[connection signal="button_down" from="logRideButton" to="." method="_on_log_ride_button_button_down"]
+[connection signal="button_down" from="queryRide" to="." method="_on_query_ride_button_down"]
+[connection signal="button_down" from="addRideWindowButton" to="." method="_on_add_ride_window_button_down"]
+[connection signal="button_down" from="addLocationWindowButton" to="." method="_on_add_location_window_button_button_down"]
+[connection signal="button_down" from="browseLogsButton" to="." method="_on_browse_logs_button_button_down"]
+[connection signal="button_down" from="statsButton" to="." method="_on_stats_button_button_down"]
+[connection signal="button_down" from="settingsButton" to="settingsWindow" method="_on_settings_button_button_down"]
+[connection signal="close_requested" from="addRideWindow" to="." method="_on_add_ride_window_close_requested"]
+[connection signal="button_down" from="addRideWindow/addRideButton" to="." method="_on_add_ride_button_button_down"]
+[connection signal="close_requested" from="addLocationWindow" to="." method="_on_add_location_window_close_requested"]
+[connection signal="button_down" from="addLocationWindow/addLocationButton" to="." method="_on_add_location_button_button_down"]
+[connection signal="close_requested" from="settingsWindow" to="settingsWindow" method="_on_settings_window_close_requested"]
+[connection signal="button_down" from="settingsWindow/resetDatabaseButton" to="settingsWindow" method="_on_reset_database_button_button_down"]
+[connection signal="confirmed" from="settingsWindow/resetDatabaseButton/resetDbWindow" to="settingsWindow" method="_on_reset_db_window_confirmed"]
+[connection signal="button_down" from="settingsWindow/changeDatabaseButton" to="settingsWindow" method="_on_change_database_button_button_down"]
+[connection signal="file_selected" from="settingsWindow/changeDatabaseButton/FileDialog" to="settingsWindow" method="_on_file_dialog_file_selected"]

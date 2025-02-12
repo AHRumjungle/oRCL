@@ -1,0 +1,44 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="oRCL"
+config/description="A simple logging app to log the rollercoasters and rides you have been on"
+config/version="0.1.0"
+run/main_scene="res://app.tscn"
+config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+config/icon="res://resources/icon.png"
+
+[autoload]
+
+DB="*res://db.gd"
+
+[display]
+
+window/size/viewport_width=540
+window/size/viewport_height=960
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
+
+[gui]
+
+theme/custom_font="res://fonts/LTVeritas-Regular.ttf"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

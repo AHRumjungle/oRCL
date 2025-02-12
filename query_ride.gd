@@ -11,6 +11,10 @@ func _ready() -> void:
 	# Reset Inputs
 	$searchText.text = ""
 	$itemList.clear()
+	
+	#init search to show all rides
+	_on_search_button_button_down()
+	
 	pass
 
 

@@ -11,10 +11,8 @@ func _ready() -> void:
 	refreshAllList()
 	
 	#update query ride button
-	if DB.selectRideForLog > -1:
-		updateSelectedRideButton()
-	else:
-		$queryRide.text = "No Ride Selected"
+	updateSelectedRideButton()
+	
 	
 	pass 
 
@@ -76,8 +74,11 @@ func _on_log_ride_button_button_down() -> void:
 		$feedbackLabel/timer.start()
 	else:
 		print("Logged Ride at " + date)
+		
 		#clear inputs
 		$logNotes.clear()
+		DB.selectRideForLog = -1
+		updateSelectedRideButton()
 		
 		#Feedback label stuff
 		$feedbackLabel.add_theme_color_override("font_color", Color(0,255,0))
@@ -180,6 +181,14 @@ func _on_add_location_window_close_requested() -> void:
 func _on_add_location_button_button_down() -> void:
 	#add location to DB
 	
+	#check for empty inputs
+	if $addLocationWindow/addLocationFullName.text == "" or $addLocationWindow/addLocationShortName.text == "":
+		print("ERR empty input")
+		$addLocationWindow/confLabel.text = "Cannot Have Blank Inputs"
+		$addLocationWindow/confLabel.visible = true
+		return
+	
+	
 	#cursed long query
 	var query : String = "INSERT INTO \"Location\" (\"name\", \"shortName\") VALUES (\""+ str($addLocationWindow/addLocationFullName.text) +"\", \"" + str($addLocationWindow/addLocationShortName.text) + "\");"
 	
@@ -226,6 +235,11 @@ func _on_query_ride_button_down() -> void:
 	pass
 
 func updateSelectedRideButton():
+	
+	if DB.selectRideForLog == -1:
+		$queryRide.text = "No Ride Selected"
+		return
+	
 	
 	var id : String = str(DB.selectRideForLog)
 	

@@ -170,13 +170,14 @@ placeholder_text = "Ride Name"
 [node name="addRideDes" type="TextEdit" parent="addRideWindow"]
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.25
+anchor_top = 0.2
 anchor_right = 0.5
-anchor_bottom = 0.25
+anchor_bottom = 0.3
 offset_left = -100.0
 offset_right = 100.0
 offset_bottom = 50.0
 placeholder_text = "Ride Description"
+wrap_mode = 1
 
 [node name="addRideLoc" type="OptionButton" parent="addRideWindow"]
 anchors_preset = -1
@@ -188,6 +189,7 @@ offset_left = -100.0
 offset_right = 100.0
 offset_bottom = 50.0
 alignment = 1
+text_overrun_behavior = 3
 
 [node name="addRideButton" type="Button" parent="addRideWindow"]
 anchors_preset = -1
@@ -266,12 +268,9 @@ text = "Add Location to DB"
 
 [node name="confLabel" type="Label" parent="addLocationWindow"]
 anchors_preset = -1
-anchor_left = 0.5
 anchor_top = 0.65
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.65
-offset_left = -75.0
-offset_bottom = 23.0
 text = "Confirmation Label"
 horizontal_alignment = 1
 

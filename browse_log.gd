@@ -2,6 +2,10 @@ extends Control
 
 var itemListRef = []
 
+func _ready() -> void:
+	#init search to show all logs
+	_on_search_button_button_down()
+	pass
 
 func _on_back_button_button_down() -> void:
 	get_tree().change_scene_to_file("res://app.tscn")
@@ -14,9 +18,7 @@ func _on_back_button_button_down() -> void:
 # Main Search
 #
 func _on_search_button_button_down() -> void:
-	
-	print("Searching")
-	
+		
 	var searchBox : String = str($searchText.text)
 	
 	var query : String = "SELECT RCLog.ID, RCLog.date, RideRef.name, RCLog.note FROM RCLog INNER JOIN RideRef ON RClog.rideID = RideRef.id WHERE RideRef.name LIKE \"%"+ searchBox +"%\""

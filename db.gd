@@ -22,8 +22,8 @@ var LocationTable : String = "CREATE TABLE IF NOT EXISTS \"Location\" (\"id\"	IN
 func _ready() -> void:
 	
 	if OS.get_name() in ["Android"]:
-			databasePath = "user://database.db" #Change res: to user: when exporting to android
-			saveFilePath = "user://databasePath.save"
+			databasePath = "/storage/emulated/0" 
+			saveFilePath = "user://databasePath.save" #Change res: to user: when exporting to android
 			OS.request_permissions()
 	
 	#check for saved db path

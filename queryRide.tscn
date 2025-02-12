@@ -47,7 +47,7 @@ offset_right = 150.0
 offset_bottom = 50.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 20
-placeholder_text = "Search Ride"
+placeholder_text = "Search Rides"
 
 [node name="searchButton" type="Button" parent="."]
 layout_mode = 1

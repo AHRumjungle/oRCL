@@ -294,7 +294,7 @@ initial_position = 1
 size = Vector2i(350, 150)
 ok_button_text = "Reset"
 dialog_text = "Do you want to reset the database? 
-Reseting the database will delete all data and quit the app."
+Reseting the database will delete all data."
 dialog_autowrap = true
 
 [node name="changeDatabaseButton" type="Button" parent="settingsWindow"]

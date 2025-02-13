@@ -4,7 +4,10 @@ extends Window
 func _ready() -> void:
 	
 	updatePathLabel()
-
+	
+	#Update reset button
+	$resetDatabaseButton.disabled = false
+	$resetDatabaseButton.text = "Reset Database"
 	pass 
 
 func updatePathLabel():
@@ -36,8 +39,19 @@ func _on_reset_db_window_confirmed() -> void:
 	if !DB.db.query(query):
 		print("ERR reseting database")
 	else:
-		print("ALL TABLES DROPED. QUITTING")
-		get_tree().quit()
+		print("ALL TABLES DROPED")
+		
+		#Disable Reset Button
+		$resetDatabaseButton.disabled = true
+		$resetDatabaseButton.text = "Database Reseted"
+		
+		DB.initDB()
+		
+		self.get_parent().refreshAllList() # Calls the function from the root
+		updatePathLabel()
+		#Deselect any previous rides
+		DB.selectRideForLog = -1
+		self.get_parent().updateSelectedRideButton()
 	pass
 
 

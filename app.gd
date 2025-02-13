@@ -12,8 +12,6 @@ func _ready() -> void:
 	
 	#update query ride button
 	updateSelectedRideButton()
-	
-	
 	pass 
 
 #

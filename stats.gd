@@ -36,7 +36,7 @@ func updateStats() -> void:
 	
 	
 	# Calculate most ridden ride
-	var mostRidenQuery : String = "SELECT rideID, COUNT(*) AS count FROM RCLog GROUP BY rideID LIMIT 1"
+	var mostRidenQuery : String = "SELECT rideID, COUNT(*) AS count FROM RCLog GROUP BY rideID ORDER BY count DESC LIMIT 1"
 	
 	if !DB.db.query(mostRidenQuery):
 		print("ERR on mostRidenQuery")

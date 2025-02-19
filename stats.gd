@@ -59,6 +59,22 @@ func updateStats() -> void:
 	
 	text += "Most Ridden Ride: " + rideName +  " | " + locShort + "\n"
 	text +="Ride Count: " + str(rideCount)
+	text += "\n\n"
+	
+	
+	#Get Most Visted Location
+	var mostVistLoc : String = "SELECT COUNT(*) AS count, Location.id AS locID, Location.name AS locName FROM RCLog INNER JOIN RideRef ON RCLog.rideID = RideRef.id INNER JOIN Location ON RideRef.location = Location.id GROUP BY RideRef.location LIMIT 1"
+	
+	text += "Most Visited Location: "
+	
+	if DB.db.query(mostVistLoc):
+		text+= DB.db.query_result[0]["locName"] + "\n"
+		text+= "Times Visted: " + str(DB.db.query_result[0]["count"])
+	else:
+		print("ERR on mostVistLoc query")
+	
+	text += "\n\n"
+	
 	
 	$statsLabel.text = text
 	pass

@@ -153,6 +153,11 @@ func _on_add_ride_button_button_down() -> void:
 		refreshAllList()
 	pass
 
+func _on_back_button_button_down_ride_add_window() -> void:
+	$addRideWindow.visible = false
+	pass
+
+
 
 #Add Location
 func _on_add_location_window_button_button_down() -> void:
@@ -207,6 +212,12 @@ func _on_add_location_button_button_down() -> void:
 		#disable add button
 		$addLocationWindow/addLocationButton.disabled = true
 	pass 
+
+
+func _on_back_button_button_down_add_location() -> void:
+	$addLocationWindow.visible = false
+	pass
+
 
 #
 #

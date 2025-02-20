@@ -84,4 +84,8 @@ func _on_file_dialog_file_selected(path: String) -> void:
 	self.get_parent().updateSelectedRideButton()
 	pass
 
+func _on_back_button_button_down() -> void:
+	self.visible = false
+	pass
+
 # ------

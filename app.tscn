@@ -227,6 +227,13 @@ grow_vertical = 2
 text = "Confirm Label"
 horizontal_alignment = 1
 
+[node name="backButton" type="Button" parent="addRideWindow"]
+anchors_preset = -1
+offset_right = 75.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "Back"
+
 [node name="addLocationWindow" type="Window" parent="."]
 title = "Add Location"
 initial_position = 1
@@ -239,8 +246,8 @@ anchor_left = 0.5
 anchor_top = 0.05
 anchor_right = 0.5
 anchor_bottom = 0.05
-offset_left = -150.0
-offset_right = 150.0
+offset_left = -100.0
+offset_right = 100.0
 offset_bottom = 50.0
 placeholder_text = "Location Full Name"
 
@@ -250,8 +257,8 @@ anchor_left = 0.5
 anchor_top = 0.25
 anchor_right = 0.5
 anchor_bottom = 0.25
-offset_left = -150.0
-offset_right = 150.0
+offset_left = -100.0
+offset_right = 100.0
 offset_bottom = 50.0
 placeholder_text = "Location Short Name"
 
@@ -273,6 +280,13 @@ anchor_right = 1.0
 anchor_bottom = 0.65
 text = "Confirmation Label"
 horizontal_alignment = 1
+
+[node name="backButton" type="Button" parent="addLocationWindow"]
+anchors_preset = -1
+offset_right = 75.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "Back"
 
 [node name="settingsWindow" type="Window" parent="."]
 title = "Settings"
@@ -323,6 +337,18 @@ text = "Current Database Path: "
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="backButton" type="Button" parent="settingsWindow"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.85
+anchor_right = 0.5
+anchor_bottom = 0.85
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 0
+text = "Back"
+
 [connection signal="timeout" from="feedbackLabel/timer" to="." method="_on_label_timer_timeout"]
 [connection signal="button_down" from="logRideButton" to="." method="_on_log_ride_button_button_down"]
 [connection signal="button_down" from="queryRide" to="." method="_on_query_ride_button_down"]
@@ -333,10 +359,13 @@ autowrap_mode = 2
 [connection signal="button_down" from="settingsButton" to="settingsWindow" method="_on_settings_button_button_down"]
 [connection signal="close_requested" from="addRideWindow" to="." method="_on_add_ride_window_close_requested"]
 [connection signal="button_down" from="addRideWindow/addRideButton" to="." method="_on_add_ride_button_button_down"]
+[connection signal="button_down" from="addRideWindow/backButton" to="." method="_on_back_button_button_down_ride_add_window"]
 [connection signal="close_requested" from="addLocationWindow" to="." method="_on_add_location_window_close_requested"]
 [connection signal="button_down" from="addLocationWindow/addLocationButton" to="." method="_on_add_location_button_button_down"]
+[connection signal="button_down" from="addLocationWindow/backButton" to="." method="_on_back_button_button_down_add_location"]
 [connection signal="close_requested" from="settingsWindow" to="settingsWindow" method="_on_settings_window_close_requested"]
 [connection signal="button_down" from="settingsWindow/resetDatabaseButton" to="settingsWindow" method="_on_reset_database_button_button_down"]
 [connection signal="confirmed" from="settingsWindow/resetDatabaseButton/resetDbWindow" to="settingsWindow" method="_on_reset_db_window_confirmed"]
 [connection signal="button_down" from="settingsWindow/changeDatabaseButton" to="settingsWindow" method="_on_change_database_button_button_down"]
 [connection signal="file_selected" from="settingsWindow/changeDatabaseButton/FileDialog" to="settingsWindow" method="_on_file_dialog_file_selected"]
+[connection signal="button_down" from="settingsWindow/backButton" to="settingsWindow" method="_on_back_button_button_down"]

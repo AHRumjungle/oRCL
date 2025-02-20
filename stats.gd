@@ -63,18 +63,27 @@ func updateStats() -> void:
 	
 	
 	#Get Most Visted Location
-	var mostVistLoc : String = "SELECT COUNT(*) AS count, Location.id AS locID, Location.name AS locName FROM RCLog INNER JOIN RideRef ON RCLog.rideID = RideRef.id INNER JOIN Location ON RideRef.location = Location.id GROUP BY RideRef.location LIMIT 1"
+	#Finds the location with the most distinct dates
+	var mostVistLoc : String = """
+	SELECT count(DISTINCT strftime('%Y-%m-%d', date)) as count, Location.name FROM RCLog 
+	INNER JOIN RideRef ON RCLog.rideID = RideRef.id 
+	INNER JOIN Location ON RideRef.location = Location.id 
+	GROUP BY location.name ORDER BY count DESC
+	"""
 	
 	text += "Most Visited Location: "
 	
 	if DB.db.query(mostVistLoc):
-		text+= DB.db.query_result[0]["locName"] + "\n"
+		text+= DB.db.query_result[0]["name"] + "\n"
 		text+= "Times Visted: " + str(DB.db.query_result[0]["count"])
 	else:
 		print("ERR on mostVistLoc query")
 	
 	text += "\n\n"
 	
+	#TODO
+	# Longets Marathon
+	# Finds the Ride with the most adjacent date/time/entery
 	
 	$statsLabel.text = text
 	pass

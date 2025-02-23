@@ -40,6 +40,7 @@ text = "oRCL
 horizontal_alignment = 1
 
 [node name="feedbackLabel" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.21

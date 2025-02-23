@@ -9,8 +9,6 @@ var saveFilePath : String = "res://databasePath.save"
 var selectRideForLog : int = -1
 
 
-var appStart = true #For app start popups
-
 #DB Layout
 #TODO Add Manufacture Table, add ride type tabel
 

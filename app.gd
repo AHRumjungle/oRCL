@@ -1,10 +1,7 @@
 extends Control
 
 
-
-
 func _ready() -> void:
-	
 	
 	#Change file select base directory
 	if OS.get_name() in ["Android"]:
@@ -15,15 +12,6 @@ func _ready() -> void:
 	
 	#update query ride button
 	updateSelectedRideButton()
-	
-	#Have the Feedback Label show the DB path only for the first run
-	if DB.appStart == true:
-		$feedbackLabel.add_theme_color_override("font_color", Color(0,255,0))
-		$feedbackLabel.text = "Opened DB: " + DB.databasePath
-		$feedbackLabel.visible = true
-		$feedbackLabel/timer.start()
-	
-	DB.appStart = false
 	pass 
 
 #

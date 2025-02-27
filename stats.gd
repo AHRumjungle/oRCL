@@ -34,6 +34,16 @@ func updateStats() -> void:
 	
 	text += "Credit Count: " + credits + "\n\n"
 	
+	# Calculate total number of logs
+	
+	var totalLogsQuery : String = "SELECT COUNT(*) as logCount FROM RClog"
+	
+	if !DB.db.query(totalLogsQuery):
+		print("ERR on totalLogsQuery")
+	
+	var totalLogs : String = str(DB.db.query_result[0]["logCount"])
+	
+	text += "Total Logs: " + totalLogs + "\n\n"
 	
 	# Calculate most ridden ride
 	var mostRidenQuery : String = "SELECT rideID, COUNT(*) AS count FROM RCLog GROUP BY rideID ORDER BY count DESC LIMIT 1"

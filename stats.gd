@@ -25,44 +25,58 @@ func updateStats() -> void:
 		return
 
 	#Calculate Credit Count
-	var creditQuery : String = "SELECT COUNT(DISTINCT rideID) AS credits FROM RCLog INNER JOIN RideRef ON RCLog.rideID = RideRef.id WHERE RideRef.isCredit = 1"
+	var creditQuery : String = """
+	SELECT COUNT(DISTINCT rideID) AS credits FROM RCLog 
+	INNER JOIN RideRef ON RCLog.rideID = RideRef.id 
+	WHERE RideRef.isCredit = 1
+	"""
 	
 	if !DB.db.query(creditQuery):
-		print("ERR on creditQuery")
+		onStatsError("ERR on creditQuery")
+		return
 	
 	var credits : String = str(DB.db.query_result[0]["credits"])
 	
 	text += "Credit Count: " + credits + "\n\n"
 	
-	# Calculate total number of logs
 	
+	# Calculate total number of logs
 	var totalLogsQuery : String = "SELECT COUNT(*) as logCount FROM RClog"
 	
 	if !DB.db.query(totalLogsQuery):
-		print("ERR on totalLogsQuery")
+		onStatsError("ERR on totalLogsQuery")
+		return
 	
 	var totalLogs : String = str(DB.db.query_result[0]["logCount"])
 	
 	text += "Total Logs: " + totalLogs + "\n\n"
 	
+	
 	# Calculate most ridden ride
-	var mostRidenQuery : String = "SELECT rideID, COUNT(*) AS count FROM RCLog GROUP BY rideID ORDER BY count DESC LIMIT 1"
+	var mostRidenQuery : String = """
+	SELECT rideID, COUNT(*) AS count FROM RCLog 
+	GROUP BY rideID 
+	ORDER BY count DESC LIMIT 1
+	"""
 	
 	if !DB.db.query(mostRidenQuery):
-		print("ERR on mostRidenQuery")
-	
-	
-	
-	
+		onStatsError("ERR on mostRidenQuery")
+		return
 	
 	var rideID : int = DB.db.query_result[0]["rideID"]
 	var rideCount : int = DB.db.query_result[0]["count"]
 	
+	
 	#get ride name
-	var getRideName : String = "SELECT RideRef.name, Location.shortName AS locShort FROM RideRef INNER JOIN Location ON RideRef.location = Location.id WHERE RideRef.id = " + str(rideID)
+	var getRideName : String = """
+	SELECT RideRef.name, Location.shortName AS locShort FROM RideRef 
+	INNER JOIN Location ON RideRef.location = Location.id 
+	WHERE RideRef.id = 
+	""" + str(rideID)
 	
 	if !DB.db.query(getRideName):
 		print("ERR on getRideName")
+		return
 	
 	var rideName : String = DB.db.query_result[0]["name"]
 	var locShort : String = DB.db.query_result[0]["locShort"]
@@ -87,7 +101,8 @@ func updateStats() -> void:
 		text+= DB.db.query_result[0]["name"] + "\n"
 		text+= "Times Visted: " + str(DB.db.query_result[0]["count"])
 	else:
-		print("ERR on mostVistLoc query")
+		onStatsError("ERR on mostVistLoc query")
+		return
 	
 	text += "\n\n"
 	
@@ -96,4 +111,11 @@ func updateStats() -> void:
 	# Finds the Ride with the most adjacent date/time/entery
 	
 	$statsLabel.text = text
+	pass
+#
+#
+#
+func onStatsError(errorText : String):
+	print(errorText)
+	$statsLabel.text = "ERROR:\n" + errorText
 	pass

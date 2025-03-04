@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://i7i6qmq6f64m"]
 
-[ext_resource type="Script" path="res://stats.gd" id="1_ehdl7"]
+[ext_resource type="Script" uid="uid://blxlvy8lkrhf4" path="res://stats.gd" id="1_ehdl7"]
 [ext_resource type="Texture2D" uid="uid://bro2me2842c7l" path="res://resources/gradiant.png" id="2_o8ev2"]
 
 [node name="Stats" type="Control"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://crmbsi8oxvcai"]
 
-[ext_resource type="Script" path="res://browse_log.gd" id="1_71tf4"]
+[ext_resource type="Script" uid="uid://va4ow4g7p8jp" path="res://browse_log.gd" id="1_71tf4"]
 [ext_resource type="Texture2D" uid="uid://bro2me2842c7l" path="res://resources/gradiant.png" id="2_hinea"]
 
 [node name="Control" type="Control"]

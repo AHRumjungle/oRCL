@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://cogr0xqd351ot"]
 
-[ext_resource type="Script" path="res://app.gd" id="1_xhjy7"]
+[ext_resource type="Script" uid="uid://dhqhxy1ciq8s5" path="res://app.gd" id="1_xhjy7"]
 [ext_resource type="FontFile" uid="uid://xj8h8yv6c2b6" path="res://fonts/Eightgon.ttf" id="2_l5c8q"]
 [ext_resource type="Texture2D" uid="uid://diehpkcv6o45u" path="res://resources/settings.svg" id="3_5ian1"]
-[ext_resource type="Script" path="res://settings_window.gd" id="4_am8ig"]
+[ext_resource type="Script" uid="uid://d0ro52sc4i06l" path="res://settings_window.gd" id="4_am8ig"]
 [ext_resource type="Texture2D" uid="uid://bro2me2842c7l" path="res://resources/gradiant.png" id="5_ue0j7"]
 
 [node name="Control" type="Control"]

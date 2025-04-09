@@ -46,6 +46,7 @@ Stats
 Stats
 "
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="bk" type="TextureRect" parent="."]
 z_index = -1

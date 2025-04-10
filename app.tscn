@@ -78,6 +78,8 @@ offset_right = 125.0
 offset_bottom = 50.0
 theme_override_font_sizes/font_size = 20
 text = "No Ride Selected"
+text_overrun_behavior = 3
+clip_text = true
 
 [node name="logNotes" type="TextEdit" parent="."]
 layout_mode = 1

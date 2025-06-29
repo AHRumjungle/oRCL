@@ -15,6 +15,10 @@ func _ready() -> void:
 	#init search to show all rides
 	_on_search_button_button_down()
 	
+	#Increase scroll bar, see brows_logs.gd for more info
+	$itemList.get_v_scroll_bar().custom_minimum_size.x = 20
+	#$itemList.fixed_column_width = $itemList.fixed_column_width - 20 
+	
 	pass
 
 

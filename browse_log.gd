@@ -5,6 +5,14 @@ var itemListRef = []
 func _ready() -> void:
 	#init search to show all logs
 	_on_search_button_button_down()
+	
+	#Set item list scroll bar to be bigger
+	#TODO Find better way to do this globaly. Themes?
+	$itemList.get_v_scroll_bar().custom_minimum_size.x = 20
+	
+	#Adjust margins so text is not covered
+	#$itemList.fixed_column_width = $itemList.fixed_column_width - 20 
+	
 	pass
 
 func _on_back_button_button_down() -> void:

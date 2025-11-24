@@ -13,7 +13,7 @@ var appStart = true #For app start popups
 
 var RCLogTable : String = "CREATE TABLE IF NOT EXISTS \"RCLog\" (\"id\"	INTEGER NOT NULL UNIQUE,\"date\"	TEXT NOT NULL,\"rideID\"	INTEGER NOT NULL,\"note\"	BLOB,PRIMARY KEY(\"id\" AUTOINCREMENT),FOREIGN KEY(\"rideID\") REFERENCES \"RideRef\"(\"id\"));"
 
-var RideRefTable : String = "CREATE TABLE IF NOT EXISTS \"RideRef\" (\"id\"	INTEGER NOT NULL UNIQUE,\"name\"	TEXT NOT NULL UNIQUE,\"des\"	BLOB,\"location\"	INTEGER, \"isCredit\"	INTEGER, PRIMARY KEY(\"id\" AUTOINCREMENT),FOREIGN KEY(\"location\") REFERENCES \"Location\"(\"id\"));"
+var RideRefTable : String = "CREATE TABLE IF NOT EXISTS \"RideRef\" (\"id\"	INTEGER NOT NULL UNIQUE,\"name\"	TEXT NOT NULL,\"des\"	BLOB,\"location\"	INTEGER, \"isCredit\"	INTEGER, PRIMARY KEY(\"id\" AUTOINCREMENT),FOREIGN KEY(\"location\") REFERENCES \"Location\"(\"id\"));"
 
 var LocationTable : String = "CREATE TABLE IF NOT EXISTS \"Location\" (\"id\"	INTEGER NOT NULL UNIQUE,\"name\"	TEXT NOT NULL,\"shortName\"	TEXT NOT NULL,PRIMARY KEY(\"id\" AUTOINCREMENT));"
 

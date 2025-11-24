@@ -1,7 +1,6 @@
 extends Control
 
-
-
+var selectRideForLog : int = -1
 
 func _ready() -> void:
 	
@@ -12,6 +11,11 @@ func _ready() -> void:
 		$settingsWindow/changeDatabaseButton/FileDialog.use_native_dialog = false
 	
 	refreshAllList()
+	
+	
+	#Return from scene check
+	if FS.returnDict.has("rideID"):
+		selectRideForLog = FS.returnDict["rideID"]
 	
 	#update query ride button
 	updateSelectedRideButton()
@@ -57,7 +61,7 @@ func refreshAllList() -> void:
 # Log Ride
 func _on_log_ride_button_button_down() -> void:
 	
-	var rideID : String = str(DB.selectRideForLog)
+	var rideID : String = str(selectRideForLog)
 	var date : String = Time.get_datetime_string_from_system()
 	var note : String = str($logNotes.text)
 	
@@ -87,7 +91,7 @@ func _on_log_ride_button_button_down() -> void:
 		
 		#clear inputs
 		$logNotes.clear()
-		DB.selectRideForLog = -1
+		selectRideForLog = -1
 		updateSelectedRideButton()
 		
 		#Feedback label stuff
@@ -252,19 +256,24 @@ func _on_stats_button_button_down() -> void:
 
 #Query Ride Button
 func _on_query_ride_button_down() -> void:
-	get_tree().change_scene_to_file("res://queryRide.tscn")
+	FS.functionScene("res://queryRide.tscn")
 	pass
 
 func updateSelectedRideButton():
 	
-	if DB.selectRideForLog == -1:
+	if selectRideForLog == -1:
 		$queryRide.text = "No Ride Selected"
 		return
 	
 	
-	var id : String = str(DB.selectRideForLog)
+	var id : String = str(selectRideForLog)
 	
-	var query : String = "SELECT RideRef.name, Location.shortName AS locShortName FROM RideRef INNER JOIN Location ON RideRef.location = Location.id WHERE Rideref.id = "+ id +" LIMIT 1"
+	var query : String = "
+	SELECT RideRef.name, 
+	Location.shortName AS locShortName FROM 
+	RideRef INNER JOIN Location ON 
+	RideRef.location = Location.id WHERE 
+	Rideref.id = "+ id +" LIMIT 1"
 	
 	if !DB.db.query(query):
 		print("ERR on updateQueryRideButton")
@@ -274,6 +283,7 @@ func updateSelectedRideButton():
 	text += DB.db.query_result[0]["name"]
 	text += " | "
 	text += DB.db.query_result[0]["locShortName"]
+	
 	
 	$queryRide.text = text
 	pass

@@ -6,9 +6,6 @@ var databasePath : String = "res://database.db" #Change res: to user: when expor
 
 var saveFilePath : String = "res://databasePath.save"
 
-var selectRideForLog : int = -1
-
-
 var appStart = true #For app start popups
 
 #DB Layout

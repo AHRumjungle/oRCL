@@ -22,6 +22,7 @@ config/icon="res://resources/icon.png"
 [autoload]
 
 DB="*res://db.gd"
+FS="*res://functionSceneHadler.gd"
 
 [display]
 

@@ -1,16 +1,20 @@
 extends Control
 
+#Is a 'function scene' Works with the function scene manager and acts like a function
+
 var itemListRef = []
 
 func _on_back_button_button_down() -> void:
-	get_tree().change_scene_to_file("res://app.tscn")
-	pass 
+	FS.returnToLastScene()
+
+
 
 
 func _ready() -> void:
 	# Reset Inputs
 	$searchText.text = ""
 	$itemList.clear()
+	
 	
 	#init search to show all rides
 	_on_search_button_button_down()
@@ -67,6 +71,6 @@ func searchRide() -> void:
 
 
 func _on_item_list_item_selected(index: int) -> void:
-	DB.selectRideForLog = itemListRef[index]
-	get_tree().change_scene_to_file("res://app.tscn")
+	FS.returnDict["rideID"] = itemListRef[index]
+	FS.returnToLastScene()
 	pass

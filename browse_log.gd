@@ -26,7 +26,13 @@ func _on_back_button_button_down() -> void:
 # Main Search
 #
 func _on_search_button_button_down() -> void:
-		
+	searchLogs()
+
+func _on_search_text_text_submitted(new_text: String) -> void:
+	searchLogs()
+
+
+func searchLogs() -> void:
 	var searchBox : String = str($searchText.text)
 	
 	var query : String = "SELECT RCLog.ID, RCLog.date, RideRef.name, RCLog.note FROM RCLog INNER JOIN RideRef ON RClog.rideID = RideRef.id WHERE RideRef.name LIKE \"%"+ searchBox +"%\""

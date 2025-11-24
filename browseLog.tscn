@@ -35,7 +35,7 @@ offset_bottom = 50.0
 theme_override_font_sizes/font_size = 25
 text = "Back"
 
-[node name="searchText" type="TextEdit" parent="."]
+[node name="searchText" type="LineEdit" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -49,6 +49,7 @@ grow_horizontal = 2
 tooltip_text = "Use \"-\" instead of \"/\" when searching dates"
 theme_override_font_sizes/font_size = 20
 placeholder_text = "Search Logs"
+alignment = 1
 
 [node name="searchButton" type="Button" parent="."]
 layout_mode = 1
@@ -94,6 +95,7 @@ ok_button_text = "Close"
 dialog_autowrap = true
 
 [connection signal="button_down" from="backButton" to="." method="_on_back_button_button_down"]
+[connection signal="text_submitted" from="searchText" to="." method="_on_search_text_text_submitted"]
 [connection signal="button_down" from="searchButton" to="." method="_on_search_button_button_down"]
 [connection signal="item_selected" from="itemList" to="." method="_on_item_list_item_selected"]
 [connection signal="confirmed" from="moreInfoWindow" to="." method="_on_more_info_window_confirmed"]

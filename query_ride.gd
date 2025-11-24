@@ -23,7 +23,12 @@ func _ready() -> void:
 
 
 func _on_search_button_button_down() -> void:
-	
+	searchRide()
+
+func _on_search_text_text_submitted(new_text: String) -> void:
+	searchRide()
+
+func searchRide() -> void:
 	var search : String = str($searchText.text) 
 	
 	

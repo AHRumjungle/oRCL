@@ -88,6 +88,7 @@ theme_override_font_sizes/font_size = 20
 text = "	Search Notes"
 
 [node name="moreInfoWindow" type="AcceptDialog" parent="."]
+oversampling_override = 1.0
 title = "More Info"
 initial_position = 1
 size = Vector2i(400, 400)

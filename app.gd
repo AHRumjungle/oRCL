@@ -16,6 +16,7 @@ func _ready() -> void:
 	#Return from scene check
 	if FS.returnDict.has("rideID"):
 		selectRideForLog = FS.returnDict["rideID"]
+		FS.returnDict = {} #Clear return so data is not present in other scenes
 	
 	#update query ride button
 	updateSelectedRideButton()
@@ -287,3 +288,8 @@ func updateSelectedRideButton():
 	
 	$queryRide.text = text
 	pass
+
+
+func _on_ride_stats_button_button_down() -> void:
+	get_tree().change_scene_to_file("res://rideStats.tscn")
+	pass # Replace with function body.

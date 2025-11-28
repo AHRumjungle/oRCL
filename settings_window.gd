@@ -80,7 +80,7 @@ func _on_file_dialog_file_selected(path: String) -> void:
 	updatePathLabel()
 	
 	#Deselect any previous rides
-	DB.selectRideForLog = -1
+	#DB.selectRideForLog = -1 #TODO Refernce app selected ride
 	self.get_parent().updateSelectedRideButton()
 	pass
 

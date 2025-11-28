@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwn73mrqybsr4"]
+
+[ext_resource type="Script" uid="uid://dmkhlix62lgc" path="res://rideStats.gd" id="1_ffh8t"]
+[ext_resource type="Texture2D" uid="uid://bro2me2842c7l" path="res://resources/gradiant.png" id="2_dvyv4"]
+
+[node name="RideStats" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ffh8t")
+
+[node name="bk" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_dvyv4")
+
+[node name="title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 0.05
+theme_override_font_sizes/font_size = 50
+text = "Ride Stats"
+horizontal_alignment = 1
+
+[node name="backButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.05
+anchor_right = 0.01
+anchor_bottom = 0.05
+offset_right = 100.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
+text = "Back"
+
+[node name="queryRide" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.15
+anchor_right = 0.5
+anchor_bottom = 0.15
+offset_left = -175.0
+offset_right = 175.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 20
+text = "No Ride Selected"
+text_overrun_behavior = 3
+clip_text = true
+
+[node name="info" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.225
+anchor_right = 0.9
+anchor_bottom = 0.475
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "RIDE NAME
+LOCATION
+RIDE DESCRIPTION Lorem ipsum dolor sit amet, 
+
+STATS
+STATS
+STATS"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="rideLogs" type="ItemList" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.5
+anchor_right = 0.9
+anchor_bottom = 0.95
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+
+[node name="moreInfoWindow" type="AcceptDialog" parent="."]
+oversampling_override = 1.0
+title = "More Info"
+initial_position = 1
+size = Vector2i(400, 400)
+ok_button_text = "Close"
+dialog_autowrap = true
+
+[connection signal="button_down" from="backButton" to="." method="_on_back_button_button_down"]
+[connection signal="button_down" from="queryRide" to="." method="_on_query_ride_button_down"]
+[connection signal="item_selected" from="rideLogs" to="." method="_on_ride_logs_item_selected"]
+[connection signal="confirmed" from="moreInfoWindow" to="." method="_on_more_info_window_confirmed"]

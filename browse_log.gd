@@ -28,7 +28,7 @@ func _on_back_button_button_down() -> void:
 func _on_search_button_button_down() -> void:
 	searchLogs()
 
-func _on_search_text_text_submitted(new_text: String) -> void:
+func _on_search_text_text_submitted(_new_text: String) -> void:
 	searchLogs()
 
 

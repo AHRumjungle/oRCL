@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://crmbsi8oxvcai"]
+[gd_scene format=3 uid="uid://crmbsi8oxvcai"]
 
 [ext_resource type="Script" uid="uid://va4ow4g7p8jp" path="res://browse_log.gd" id="1_71tf4"]
-[ext_resource type="Texture2D" uid="uid://bro2me2842c7l" path="res://resources/gradiant.png" id="2_hinea"]
+[ext_resource type="PackedScene" uid="uid://bnewc34nhrf5v" path="res://packedScenes/bk.tscn" id="2_ki08o"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=1163714640]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,18 +12,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_71tf4")
 
-[node name="bk" type="TextureRect" parent="."]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("2_hinea")
+[node name="bk" parent="." unique_id=1072395221 instance=ExtResource("2_ki08o")]
+layout_mode = 0
+anchors_preset = 0
 
-[node name="backButton" type="Button" parent="."]
+[node name="backButton" type="Button" parent="." unique_id=564860770]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.01
@@ -35,7 +28,7 @@ offset_bottom = 50.0
 theme_override_font_sizes/font_size = 25
 text = "Back"
 
-[node name="searchText" type="LineEdit" parent="."]
+[node name="searchText" type="LineEdit" parent="." unique_id=1593195331]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -51,7 +44,7 @@ theme_override_font_sizes/font_size = 20
 placeholder_text = "Search Logs"
 alignment = 1
 
-[node name="searchButton" type="Button" parent="."]
+[node name="searchButton" type="Button" parent="." unique_id=2010052686]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.99
@@ -64,7 +57,7 @@ theme_override_font_sizes/font_size = 25
 text = "Search
 "
 
-[node name="itemList" type="ItemList" parent="."]
+[node name="itemList" type="ItemList" parent="." unique_id=593769421]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
@@ -74,7 +67,7 @@ anchor_bottom = 0.95
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 25
 
-[node name="searchNotesCheck" type="CheckButton" parent="."]
+[node name="searchNotesCheck" type="CheckButton" parent="." unique_id=1373752699]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -87,7 +80,7 @@ offset_bottom = 14.4
 theme_override_font_sizes/font_size = 20
 text = "	Search Notes"
 
-[node name="moreInfoWindow" type="AcceptDialog" parent="."]
+[node name="moreInfoWindow" type="AcceptDialog" parent="." unique_id=134124201]
 oversampling_override = 1.0
 title = "More Info"
 initial_position = 1

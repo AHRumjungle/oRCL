@@ -7,6 +7,7 @@ var databasePath : String = "res://database.db" #Change res: to user: when expor
 var saveFilePath : String = "res://databasePath.save"
 
 var appStart = true #For app start popups
+var persistant : Dictionary
 
 #DB Layout
 #TODO Add Manufacture Table, add ride type tabel
@@ -25,14 +26,29 @@ func _ready() -> void:
 			saveFilePath = "user://databasePath.save" #Change res: to user: when exporting to android
 			OS.request_permissions()
 	
-	#check for saved db path
+	#Load Persistant Data
 	if FileAccess.file_exists(saveFilePath):
 		var file = FileAccess.open(saveFilePath, FileAccess.READ)
-		databasePath = file.get_line()
+		var inJSONString = file.get_as_text()
 		file.close()
+		
+		var JSONHolder = JSON.new()
+		var parseError = JSONHolder.parse(inJSONString)
+		
+		if(parseError == OK):
+			print("Loaded JSON")
+			persistant = JSONHolder.data
+		else:
+			printerr("Failed to load JSON: " + type_convert(parseError, TYPE_STRING))
+		
 	
 	#Init database
 	DB.db = SQLite.new()
+	if(persistant["dbPath"] != null):
+		databasePath = persistant["dbPath"]
+	else:
+		print("No Saved Path, opening default path")
+	
 	DB.db.path =  databasePath
 	
 	#Open DB
@@ -42,6 +58,25 @@ func _ready() -> void:
 	initDB()
 	pass
 
+####
+
+func savePersistantFile() -> void:
+	if persistant == null:
+		print("ERROR: No persistant data to save")
+		return
+	
+	var pJSON = JSON.new()
+	
+	var pJSONString = pJSON.stringify(persistant)
+	
+	print("Saving persistant data: " + pJSONString)
+	
+	var file = FileAccess.open(saveFilePath, FileAccess.WRITE)
+	file.resize(0) #deletes existing data
+	file.store_string(pJSONString)
+	file.close()
+
+####
 
 # On Close
 func _exit_tree() -> void:
@@ -62,9 +97,8 @@ func initDB() -> void:
 	pass
 
 func saveDBPath(path : String):
-	var file = FileAccess.open(saveFilePath, FileAccess.WRITE)
-	file.resize(0) #deletes existing data
-	file.store_string(path)
-	file.close()
-	print("Path Saved")
+	
+	persistant["dbPath"] = path
+	
+	savePersistantFile()
 	pass

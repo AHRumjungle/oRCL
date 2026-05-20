@@ -84,6 +84,11 @@ func updatePage() -> void:
 	var rank = 1
 	
 	while(true):
+		
+		if(DB.db.query_result.is_empty()):
+			$info.text = "No Data"
+			return
+		
 		if(DB.db.query_result[rank - 1]["rideID"] == selectedRideID):
 			break
 		else:

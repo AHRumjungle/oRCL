@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://cj36wslqcufqx"]
+
+[ext_resource type="Script" uid="uid://bwjlqsm3ty0f6" path="res://queue_timer.gd" id="1_i6b3q"]
+[ext_resource type="PackedScene" uid="uid://dmukv733587xw" path="res://packedScenes/backButton.tscn" id="1_qk23q"]
+[ext_resource type="PackedScene" uid="uid://bnewc34nhrf5v" path="res://packedScenes/bk.tscn" id="2_gx3tp"]
+
+[sub_resource type="Theme" id="Theme_i6b3q"]
+default_font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6b3q"]
+content_margin_left = 10.0
+content_margin_top = 24.0
+content_margin_right = 10.0
+content_margin_bottom = 24.0
+bg_color = Color(0, 0, 0, 0.6)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.175, 0.175, 0.175, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1bav"]
+content_margin_left = 10.0
+content_margin_top = 24.0
+content_margin_right = 10.0
+content_margin_bottom = 24.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.175, 0.175, 0.175, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lj0mc"]
+content_margin_left = 10.0
+content_margin_top = 24.0
+content_margin_right = 10.0
+content_margin_bottom = 24.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_top = 2
+border_color = Color(1, 1, 1, 0.75)
+corner_detail = 1
+
+[node name="QueueTimer" type="Control" unique_id=354619791]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_i6b3q")
+script = ExtResource("1_i6b3q")
+
+[node name="updateTimer" type="Timer" parent="." unique_id=983509552]
+
+[node name="bk" parent="." unique_id=1072395221 instance=ExtResource("2_gx3tp")]
+layout_mode = 0
+anchors_preset = 0
+
+[node name="backButton" parent="." unique_id=52476638 instance=ExtResource("1_qk23q")]
+layout_mode = 1
+
+[node name="title" type="Label" parent="." unique_id=160965258]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 0.05
+theme_override_font_sizes/font_size = 50
+text = "Queue Timer"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=211971682]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.15
+anchor_right = 0.9
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_i6b3q")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_e1bav")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_lj0mc")
+tab_alignment = 1
+current_tab = 1
+tab_0/title = "Stats"
+tab_1/title = "Control"
+
+[node name="stats" type="VBoxContainer" parent="TabContainer" unique_id=1423210254]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+metadata/_tab_name = "Stats"
+
+[node name="queueEnterTime" type="Label" parent="TabContainer/stats" unique_id=1801110988]
+layout_mode = 2
+text = "Queue Enter: 00:00"
+horizontal_alignment = 1
+
+[node name="timeWaited" type="Label" parent="TabContainer/stats" unique_id=304787583]
+layout_mode = 2
+text = "Time Waited: "
+horizontal_alignment = 1
+
+[node name="queueTimeWaited" type="Label" parent="TabContainer/stats" unique_id=855016212]
+layout_mode = 2
+text = "Stated Wait Time:"
+horizontal_alignment = 1
+
+[node name="queueETA" type="Label" parent="TabContainer/stats" unique_id=1027566330]
+layout_mode = 2
+text = "ETA: "
+horizontal_alignment = 1
+
+[node name="control" type="VBoxContainer" parent="TabContainer" unique_id=1657736792]
+layout_mode = 2
+metadata/_tab_index = 1
+metadata/_tab_name = "Control"
+
+[node name="startQueueButton" type="Button" parent="TabContainer/control" unique_id=2030117743]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Start Queue"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/control" unique_id=1997753410]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="TabContainer/control" unique_id=1883524482]
+layout_mode = 2
+text = "Set Projected Queue Time"
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/control" unique_id=1119570611]
+layout_mode = 2
+placeholder_text = "xxx Minutes"
+alignment = 1
+
+[connection signal="timeout" from="updateTimer" to="." method="updateTime"]
+[connection signal="button_down" from="TabContainer/control/startQueueButton" to="." method="_on_start_queue_button_button_down"]

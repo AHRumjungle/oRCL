@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dmukv733587xw"]
+
+[ext_resource type="Script" uid="uid://ktlyhdt1mvo0" path="res://packedScenes/back_button.gd" id="1_0u5l5"]
+
+[node name="backButton" type="Button" unique_id=52476638]
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.05
+anchor_right = 0.01
+anchor_bottom = 0.05
+offset_right = 100.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
+text = "Back"
+script = ExtResource("1_0u5l5")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

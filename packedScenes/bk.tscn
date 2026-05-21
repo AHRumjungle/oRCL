@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bnewc34nhrf5v"]
+
+[ext_resource type="Texture2D" uid="uid://bro2me2842c7l" path="res://resources/gradiant.png" id="1_cb382"]
+
+[node name="bk" type="TextureRect" unique_id=1072395221]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_cb382")

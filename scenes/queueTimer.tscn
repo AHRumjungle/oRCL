@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cn5m6a7npvot5"]
 
-[ext_resource type="Script" path="res://queue_timer.gd" id="1_i6b3q"]
+[ext_resource type="Script" uid="uid://c5iiresvv6j7g" path="res://scripts/queue_timer.gd" id="1_d0yh8"]
 [ext_resource type="PackedScene" uid="uid://dmukv733587xw" path="res://packedScenes/backButton.tscn" id="1_qk23q"]
 [ext_resource type="PackedScene" uid="uid://bnewc34nhrf5v" path="res://packedScenes/bk.tscn" id="2_gx3tp"]
 
@@ -47,7 +47,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_i6b3q")
-script = ExtResource("1_i6b3q")
+script = ExtResource("1_d0yh8")
 
 [node name="updateTimer" type="Timer" parent="." unique_id=983509552]
 

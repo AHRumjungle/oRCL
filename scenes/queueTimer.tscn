@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cj36wslqcufqx"]
+[gd_scene format=3 uid="uid://cn5m6a7npvot5"]
 
-[ext_resource type="Script" uid="uid://bwjlqsm3ty0f6" path="res://queue_timer.gd" id="1_i6b3q"]
+[ext_resource type="Script" path="res://queue_timer.gd" id="1_i6b3q"]
 [ext_resource type="PackedScene" uid="uid://dmukv733587xw" path="res://packedScenes/backButton.tscn" id="1_qk23q"]
 [ext_resource type="PackedScene" uid="uid://bnewc34nhrf5v" path="res://packedScenes/bk.tscn" id="2_gx3tp"]
 
@@ -54,6 +54,10 @@ script = ExtResource("1_i6b3q")
 [node name="bk" parent="." unique_id=1072395221 instance=ExtResource("2_gx3tp")]
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="backButton" parent="." unique_id=52476638 instance=ExtResource("1_qk23q")]
 layout_mode = 1

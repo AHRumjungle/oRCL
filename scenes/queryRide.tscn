@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://d3dseke6nqf8r"]
+[gd_scene format=3 uid="uid://bvv5f0od3ybp8"]
 
-[ext_resource type="Script" uid="uid://b713fwmedm4xg" path="res://query_ride.gd" id="1_gd20t"]
+[ext_resource type="Script" path="res://query_ride.gd" id="1_gd20t"]
 [ext_resource type="Texture2D" uid="uid://bro2me2842c7l" path="res://resources/gradiant.png" id="2_7ubwy"]
 
-[node name="QueryRide" type="Control"]
+[node name="QueryRide" type="Control" unique_id=619116159]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gd20t")
 
-[node name="bk" type="TextureRect" parent="."]
+[node name="bk" type="TextureRect" parent="." unique_id=123039742]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -23,7 +23,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_7ubwy")
 
-[node name="backButton" type="Button" parent="."]
+[node name="backButton" type="Button" parent="." unique_id=1036867618]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.01
@@ -35,7 +35,7 @@ offset_bottom = 50.0
 theme_override_font_sizes/font_size = 25
 text = "Back"
 
-[node name="searchText" type="LineEdit" parent="."]
+[node name="searchText" type="LineEdit" parent="." unique_id=1301767822]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -50,7 +50,7 @@ theme_override_font_sizes/font_size = 20
 placeholder_text = "Search Rides"
 alignment = 1
 
-[node name="searchButton" type="Button" parent="."]
+[node name="searchButton" type="Button" parent="." unique_id=982776144]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.99
@@ -63,7 +63,7 @@ theme_override_font_sizes/font_size = 25
 text = "Search
 "
 
-[node name="itemList" type="ItemList" parent="."]
+[node name="itemList" type="ItemList" parent="." unique_id=1837120333]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1

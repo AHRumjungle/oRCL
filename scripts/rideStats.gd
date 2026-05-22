@@ -22,13 +22,10 @@ func _ready() -> void:
 
 
 
-func _on_back_button_button_down() -> void:
-	get_tree().change_scene_to_file("res://app.tscn")
-	pass # Replace with function body.
 
 
 func _on_query_ride_button_down() -> void:
-	FS.functionScene("res://queryRide.tscn")
+	FS.functionScene(DB.queryRideScene)
 	pass # Replace with function body.
 
 

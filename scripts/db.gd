@@ -9,6 +9,15 @@ var saveFilePath : String = "res://databasePath.save"
 var appStart = true #For app start popups
 var persistant : Dictionary
 
+#region Scene File Vars
+const appScene : NodePath = "res://scenes/app.tscn"
+const browseLogScene : NodePath = "res://scenes/browseLog.tscn"
+const queryRideScene : NodePath = "res://scenes/queryRide.tscn"
+const queueTimerScene : NodePath = "res://scenes/queueTimer.tscn"
+const rideStatsScene : NodePath = "res://scenes/rideStats.tscn"
+const statsScene : NodePath = "res://scenes/stats.tscn"
+#endregion
+
 #DB Layout
 #TODO Add Manufacture Table, add ride type tabel
 
@@ -44,7 +53,7 @@ func _ready() -> void:
 	
 	#Init database
 	DB.db = SQLite.new()
-	if(persistant["dbPath"] != null):
+	if(persistant.has("dbPath")):
 		databasePath = persistant["dbPath"]
 	else:
 		print("No Saved Path, opening default path")

@@ -6,6 +6,7 @@ var itemListRef = []
 
 func _on_back_button_button_down() -> void:
 	FS.returnToLastScene()
+	#Do not removed, needed for Function Scene
 
 
 

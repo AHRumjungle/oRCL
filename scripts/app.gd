@@ -241,7 +241,7 @@ func _on_back_button_button_down_add_location() -> void:
 #
 
 func _on_browse_logs_button_button_down() -> void:
-	get_tree().change_scene_to_file("res://browseLog.tscn")
+	get_tree().change_scene_to_file(DB.browseLogScene)
 	pass
 
 #
@@ -252,12 +252,12 @@ func _on_label_timer_timeout() -> void:
 
 
 func _on_stats_button_button_down() -> void:
-	get_tree().change_scene_to_file("res://stats.tscn")
+	get_tree().change_scene_to_file(DB.statsScene)
 	pass
 
 #Query Ride Button
 func _on_query_ride_button_down() -> void:
-	FS.functionScene("res://queryRide.tscn")
+	FS.functionScene(DB.queryRideScene)
 	pass
 
 func updateSelectedRideButton():
@@ -285,11 +285,10 @@ func updateSelectedRideButton():
 	text += " | "
 	text += DB.db.query_result[0]["locShortName"]
 	
-	
 	$queryRide.text = text
 	pass
 
 
 func _on_ride_stats_button_button_down() -> void:
-	get_tree().change_scene_to_file("res://rideStats.tscn")
-	pass # Replace with function body.
+	get_tree().change_scene_to_file(DB.rideStatsScene)
+	pass

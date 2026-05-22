@@ -12,14 +12,9 @@ func _ready() -> void:
 	
 	#Adjust margins so text is not covered
 	#$itemList.fixed_column_width = $itemList.fixed_column_width - 20 
-	
-	pass
-
-func _on_back_button_button_down() -> void:
-	get_tree().change_scene_to_file("res://app.tscn")
-	
 	#Close popup if up
 	$moreInfoWindow.visible = false
+	
 	pass
 
 #

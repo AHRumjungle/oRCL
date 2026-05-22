@@ -65,12 +65,7 @@ script = ExtResource("1_d0yh8")
 [node name="updateTimer" type="Timer" parent="." unique_id=983509552]
 
 [node name="bk" parent="." unique_id=1072395221 instance=ExtResource("2_gx3tp")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 1
 
 [node name="backButton" parent="." unique_id=52476638 instance=ExtResource("1_qk23q")]
 layout_mode = 1
@@ -99,12 +94,11 @@ theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_i6b3q")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_e1bav")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_lj0mc")
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 tab_0/title = "Stats"
 tab_1/title = "Control"
 
 [node name="stats" type="VBoxContainer" parent="TabContainer" unique_id=1423210254]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 metadata/_tab_name = "Stats"
@@ -142,12 +136,19 @@ horizontal_alignment = 1
 visible = false
 layout_mode = 2
 
-[node name="postedDelta" type="Label" parent="TabContainer/stats/extraPostQueue" unique_id=1906594512]
+[node name="queueEndTime" type="Label" parent="TabContainer/stats/extraPostQueue" unique_id=1699242849]
 layout_mode = 2
-text = "Delta Time: "
+text = "Queue Exit:"
+horizontal_alignment = 1
+
+[node name="postedDelta" type="Label" parent="TabContainer/stats/extraPostQueue" unique_id=1906594512]
+visible = false
+layout_mode = 2
+text = "Delta Time:"
 horizontal_alignment = 1
 
 [node name="control" type="VBoxContainer" parent="TabContainer" unique_id=1657736792]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 metadata/_tab_name = "Control"

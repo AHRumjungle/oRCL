@@ -12,12 +12,10 @@ var PKey = "queuePostedTime"
 
 
 var timeWaitedColorState = {
-	0: Color(0.8, 0.8, 0.8, 0.8),
-	1: Color(1.0, 0, 0, 1),
-	2: Color(0.0, 1.0, 0, 1)
+	0: Color(0.8, 0.8, 0.8, 0.8), #Idle
+	1: Color(1.0, 0, 0, 1), #In Queue
+	2: Color(0.0, 1.0, 0, 1) #Post Queue
 }
-
-
 
 
 # Called when the node enters the scene tree for the first time.
@@ -142,15 +140,15 @@ func queueStats() -> void:
 	var state = DB.persistant[stateKey]
 	
 	if(state == 0):
+		$TabContainer/stats/extraPostQueue.visible = false
+		
 		$TabContainer/stats/timeWaitedPanel/timeWaited.text = "Waited: n/a"
 		$TabContainer/stats/queueEnterTime.text = "Queue Enter:"
 		$TabContainer/stats/queuePostedTime.text = "Posted Wait Time:"
 		$TabContainer/stats/queueETA.text = "ETA:"
 	elif(state == 1):
 		$TabContainer/stats/queueEnterTime.text = convertTimeStringToHMS(DB.persistant[DTKey], "Queue Enter: ", "hm")
-		
-		
-		
+
 		if(DB.persistant.has(PKey)):
 			$TabContainer/stats/queuePostedTime.text = "Posted Wait Time: " + str(int(DB.persistant[PKey])) + " Min"
 			
@@ -158,7 +156,6 @@ func queueStats() -> void:
 			
 			complement["hour"] = -int(DB.persistant[PKey] / 60)
 			complement["minute"] = -(int(DB.persistant[PKey]) % 60)
-			
 			complement["second"] = 0
 			
 			var start = Time.get_datetime_dict_from_datetime_string(DB.persistant[DTKey], false)
@@ -175,6 +172,12 @@ func queueStats() -> void:
 		var delta = timeDicDiff(end, start)
 		
 		$TabContainer/stats/timeWaitedPanel/timeWaited.text = convertTimeStringToHMS(delta, "Time Waited: ", "hms")
+		
+		$TabContainer/stats/extraPostQueue.visible = true
+		$TabContainer/stats/extraPostQueue/queueEndTime.text = convertTimeStringToHMS(end, "Queue Exit: ", "hm")
+		
+
+####
 
 func _on_start_queue_button_button_down() -> void:
 	

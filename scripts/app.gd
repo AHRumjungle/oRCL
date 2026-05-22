@@ -292,3 +292,8 @@ func updateSelectedRideButton():
 func _on_ride_stats_button_button_down() -> void:
 	get_tree().change_scene_to_file(DB.rideStatsScene)
 	pass
+
+
+func _on_queue_timer_button_button_down() -> void:
+	get_tree().change_scene_to_file(DB.queueTimerScene)
+	pass # Replace with function body.

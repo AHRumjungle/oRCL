@@ -39,6 +39,19 @@ border_width_top = 2
 border_color = Color(1, 1, 1, 0.75)
 corner_detail = 1
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0yh8"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 0.11764706)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
 [node name="QueueTimer" type="Control" unique_id=354619791]
 layout_mode = 3
 anchors_preset = 15
@@ -96,24 +109,42 @@ layout_mode = 2
 metadata/_tab_index = 0
 metadata/_tab_name = "Stats"
 
+[node name="timeWaitedPanel" type="PanelContainer" parent="TabContainer/stats" unique_id=1051309249]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d0yh8")
+
+[node name="timeWaited" type="Label" parent="TabContainer/stats/timeWaitedPanel" unique_id=304787583]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Waited: n/a"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/stats" unique_id=1679925967]
+layout_mode = 2
+theme_override_constants/separation = 16
+
 [node name="queueEnterTime" type="Label" parent="TabContainer/stats" unique_id=1801110988]
 layout_mode = 2
-text = "Queue Enter: 00:00"
+text = "Queue Enter:"
 horizontal_alignment = 1
 
-[node name="timeWaited" type="Label" parent="TabContainer/stats" unique_id=304787583]
+[node name="queuePostedTime" type="Label" parent="TabContainer/stats" unique_id=855016212]
 layout_mode = 2
-text = "Time Waited: "
-horizontal_alignment = 1
-
-[node name="queueTimeWaited" type="Label" parent="TabContainer/stats" unique_id=855016212]
-layout_mode = 2
-text = "Stated Wait Time:"
+text = "Posted Wait Time:"
 horizontal_alignment = 1
 
 [node name="queueETA" type="Label" parent="TabContainer/stats" unique_id=1027566330]
 layout_mode = 2
 text = "ETA: "
+horizontal_alignment = 1
+
+[node name="extraPostQueue" type="VBoxContainer" parent="TabContainer/stats" unique_id=1709485024]
+visible = false
+layout_mode = 2
+
+[node name="postedDelta" type="Label" parent="TabContainer/stats/extraPostQueue" unique_id=1906594512]
+layout_mode = 2
+text = "Delta Time: "
 horizontal_alignment = 1
 
 [node name="control" type="VBoxContainer" parent="TabContainer" unique_id=1657736792]
@@ -127,17 +158,37 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Start Queue"
 
+[node name="endQueueButton" type="Button" parent="TabContainer/control" unique_id=1517804454]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "End/Finish Queue"
+
 [node name="HSeparator" type="HSeparator" parent="TabContainer/control" unique_id=1997753410]
 layout_mode = 2
+theme_override_constants/separation = 16
 
-[node name="Button" type="Button" parent="TabContainer/control" unique_id=1883524482]
+[node name="setPostedTime" type="Button" parent="TabContainer/control" unique_id=1883524482]
 layout_mode = 2
 text = "Set Projected Queue Time"
 
-[node name="LineEdit" type="LineEdit" parent="TabContainer/control" unique_id=1119570611]
+[node name="postedTimeInput" type="LineEdit" parent="TabContainer/control" unique_id=1119570611]
 layout_mode = 2
 placeholder_text = "xxx Minutes"
 alignment = 1
 
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/control" unique_id=853371369]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="resetQueue" type="Button" parent="TabContainer/control" unique_id=46396173]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Reset"
+
 [connection signal="timeout" from="updateTimer" to="." method="updateTime"]
 [connection signal="button_down" from="TabContainer/control/startQueueButton" to="." method="_on_start_queue_button_button_down"]
+[connection signal="button_down" from="TabContainer/control/endQueueButton" to="." method="_on_end_queue_button_button_down"]
+[connection signal="button_down" from="TabContainer/control/setPostedTime" to="." method="_on_set_posted_time_button_down"]
+[connection signal="button_down" from="TabContainer/control/resetQueue" to="." method="_on_reset_queue_button_down"]

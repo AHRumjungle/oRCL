@@ -1,12 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cogr0xqd351ot"]
+[gd_scene format=3 uid="uid://cogr0xqd351ot"]
 
-[ext_resource type="Script" uid="uid://dhqhxy1ciq8s5" path="res://app.gd" id="1_xhjy7"]
+[ext_resource type="Script" uid="uid://dhqhxy1ciq8s5" path="res://scripts/app.gd" id="1_xhjy7"]
 [ext_resource type="FontFile" uid="uid://xj8h8yv6c2b6" path="res://fonts/Eightgon.ttf" id="2_l5c8q"]
 [ext_resource type="Texture2D" uid="uid://diehpkcv6o45u" path="res://resources/settings.svg" id="3_5ian1"]
 [ext_resource type="Script" uid="uid://d0ro52sc4i06l" path="res://settings_window.gd" id="4_am8ig"]
 [ext_resource type="Texture2D" uid="uid://bro2me2842c7l" path="res://resources/gradiant.png" id="5_ue0j7"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=658372463]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xhjy7")
 
-[node name="bk" type="TextureRect" parent="."]
+[node name="bk" type="TextureRect" parent="." unique_id=43931197]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -26,7 +26,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("5_ue0j7")
 
-[node name="title" type="Label" parent="."]
+[node name="title" type="Label" parent="." unique_id=2039663495]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.05
@@ -39,7 +39,7 @@ text = "oRCL
 "
 horizontal_alignment = 1
 
-[node name="feedbackLabel" type="Label" parent="."]
+[node name="feedbackLabel" type="Label" parent="." unique_id=1855147474]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -50,10 +50,10 @@ theme_override_font_sizes/font_size = 20
 text = "Feedback Label"
 horizontal_alignment = 1
 
-[node name="timer" type="Timer" parent="feedbackLabel"]
+[node name="timer" type="Timer" parent="feedbackLabel" unique_id=1124876084]
 wait_time = 3.0
 
-[node name="logRideButton" type="Button" parent="."]
+[node name="logRideButton" type="Button" parent="." unique_id=1500174690]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -66,7 +66,7 @@ offset_bottom = 50.0
 theme_override_font_sizes/font_size = 25
 text = "Log Ride"
 
-[node name="queryRide" type="Button" parent="."]
+[node name="queryRide" type="Button" parent="." unique_id=2004658656]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -81,7 +81,7 @@ text = "No Ride Selected"
 text_overrun_behavior = 3
 clip_text = true
 
-[node name="logNotes" type="TextEdit" parent="."]
+[node name="logNotes" type="TextEdit" parent="." unique_id=1911802380]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -94,7 +94,7 @@ theme_override_font_sizes/font_size = 20
 placeholder_text = "Notes"
 wrap_mode = 1
 
-[node name="addRideWindowButton" type="Button" parent="."]
+[node name="addRideWindowButton" type="Button" parent="." unique_id=1226879443]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -105,7 +105,7 @@ offset_right = 100.0
 offset_bottom = 50.0
 text = "Add Ride"
 
-[node name="addLocationWindowButton" type="Button" parent="."]
+[node name="addLocationWindowButton" type="Button" parent="." unique_id=180220410]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -116,7 +116,7 @@ offset_right = 110.0
 offset_bottom = 50.0
 text = "Add Location"
 
-[node name="browseLogsButton" type="Button" parent="."]
+[node name="browseLogsButton" type="Button" parent="." unique_id=1638699251]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.95
@@ -128,7 +128,7 @@ offset_bottom = 50.0
 grow_horizontal = 0
 text = "Browse Logs"
 
-[node name="statsButton" type="Button" parent="."]
+[node name="statsButton" type="Button" parent="." unique_id=1934228542]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.95
@@ -140,7 +140,7 @@ offset_bottom = 50.0
 grow_horizontal = 0
 text = "Stats"
 
-[node name="rideStatsButton" type="Button" parent="."]
+[node name="rideStatsButton" type="Button" parent="." unique_id=946006565]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.95
@@ -152,7 +152,7 @@ offset_bottom = 50.0
 grow_horizontal = 0
 text = "Ride Stats"
 
-[node name="settingsButton" type="Button" parent="."]
+[node name="settingsButton" type="Button" parent="." unique_id=929852155]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -163,13 +163,13 @@ offset_left = -16.0
 offset_top = -16.0
 icon = ExtResource("3_5ian1")
 
-[node name="addRideWindow" type="Window" parent="."]
+[node name="addRideWindow" type="Window" parent="." unique_id=1227241902]
 title = "Add Ride To DB"
 initial_position = 1
 size = Vector2i(400, 450)
 visible = false
 
-[node name="addRideName" type="TextEdit" parent="addRideWindow"]
+[node name="addRideName" type="TextEdit" parent="addRideWindow" unique_id=1537110270]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.05
@@ -180,7 +180,7 @@ offset_right = 100.0
 offset_bottom = 50.0
 placeholder_text = "Ride Name"
 
-[node name="addRideDes" type="TextEdit" parent="addRideWindow"]
+[node name="addRideDes" type="TextEdit" parent="addRideWindow" unique_id=706522121]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.2
@@ -192,7 +192,7 @@ offset_bottom = 50.0
 placeholder_text = "Ride Description"
 wrap_mode = 1
 
-[node name="addRideLoc" type="OptionButton" parent="addRideWindow"]
+[node name="addRideLoc" type="OptionButton" parent="addRideWindow" unique_id=195162103]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.45
@@ -204,7 +204,7 @@ offset_bottom = 50.0
 alignment = 1
 text_overrun_behavior = 3
 
-[node name="addRideButton" type="Button" parent="addRideWindow"]
+[node name="addRideButton" type="Button" parent="addRideWindow" unique_id=1296748085]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.7
@@ -215,7 +215,7 @@ offset_right = 100.0
 offset_bottom = 50.0
 text = "Add Ride To DB"
 
-[node name="isCreditButton" type="CheckButton" parent="addRideWindow"]
+[node name="isCreditButton" type="CheckButton" parent="addRideWindow" unique_id=1882829436]
 anchors_preset = -1
 anchor_left = 0.2
 anchor_top = 0.6
@@ -226,7 +226,7 @@ offset_bottom = 24.0
 button_pressed = true
 text = "Count Ride in Credit Count"
 
-[node name="confLabel" type="Label" parent="addRideWindow"]
+[node name="confLabel" type="Label" parent="addRideWindow" unique_id=484664910]
 anchors_preset = -1
 anchor_top = 0.9
 anchor_right = 1.0
@@ -240,19 +240,19 @@ grow_vertical = 2
 text = "Confirm Label"
 horizontal_alignment = 1
 
-[node name="backButton" type="Button" parent="addRideWindow"]
+[node name="backButton" type="Button" parent="addRideWindow" unique_id=556562840]
 offset_right = 75.0
 offset_bottom = 40.0
 grow_horizontal = 0
 text = "Back"
 
-[node name="addLocationWindow" type="Window" parent="."]
+[node name="addLocationWindow" type="Window" parent="." unique_id=761312083]
 title = "Add Location"
 initial_position = 1
 size = Vector2i(400, 400)
 visible = false
 
-[node name="addLocationFullName" type="TextEdit" parent="addLocationWindow"]
+[node name="addLocationFullName" type="TextEdit" parent="addLocationWindow" unique_id=1271357974]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.05
@@ -263,7 +263,7 @@ offset_right = 100.0
 offset_bottom = 50.0
 placeholder_text = "Location Full Name"
 
-[node name="addLocationShortName" type="TextEdit" parent="addLocationWindow"]
+[node name="addLocationShortName" type="TextEdit" parent="addLocationWindow" unique_id=2122435817]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.25
@@ -274,7 +274,7 @@ offset_right = 100.0
 offset_bottom = 50.0
 placeholder_text = "Location Short Name"
 
-[node name="addLocationButton" type="Button" parent="addLocationWindow"]
+[node name="addLocationButton" type="Button" parent="addLocationWindow" unique_id=1596654053]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.45
@@ -285,7 +285,7 @@ offset_right = 100.0
 offset_bottom = 50.0
 text = "Add Location to DB"
 
-[node name="confLabel" type="Label" parent="addLocationWindow"]
+[node name="confLabel" type="Label" parent="addLocationWindow" unique_id=125967878]
 anchors_preset = -1
 anchor_top = 0.65
 anchor_right = 1.0
@@ -293,27 +293,27 @@ anchor_bottom = 0.65
 text = "Confirmation Label"
 horizontal_alignment = 1
 
-[node name="backButton" type="Button" parent="addLocationWindow"]
+[node name="backButton" type="Button" parent="addLocationWindow" unique_id=497670025]
 offset_right = 75.0
 offset_bottom = 40.0
 grow_horizontal = 0
 text = "Back"
 
-[node name="settingsWindow" type="Window" parent="."]
+[node name="settingsWindow" type="Window" parent="." unique_id=1043414746]
 title = "Settings"
 initial_position = 1
 size = Vector2i(400, 400)
 visible = false
 script = ExtResource("4_am8ig")
 
-[node name="resetDatabaseButton" type="Button" parent="settingsWindow"]
+[node name="resetDatabaseButton" type="Button" parent="settingsWindow" unique_id=2020175354]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 27.0
 grow_horizontal = 2
 text = "Reset Database"
 
-[node name="resetDbWindow" type="ConfirmationDialog" parent="settingsWindow/resetDatabaseButton"]
+[node name="resetDbWindow" type="ConfirmationDialog" parent="settingsWindow/resetDatabaseButton" unique_id=1143279925]
 title = "Rest Database"
 initial_position = 1
 size = Vector2i(350, 150)
@@ -322,14 +322,14 @@ dialog_text = "Do you want to reset the database?
 Reseting the database will delete all data."
 dialog_autowrap = true
 
-[node name="changeDatabaseButton" type="Button" parent="settingsWindow"]
+[node name="changeDatabaseButton" type="Button" parent="settingsWindow" unique_id=975496712]
 anchors_preset = -1
 anchor_top = 0.1
 anchor_right = 1.0
 anchor_bottom = 0.1
 text = "Change Database"
 
-[node name="FileDialog" type="FileDialog" parent="settingsWindow/changeDatabaseButton"]
+[node name="FileDialog" type="FileDialog" parent="settingsWindow/changeDatabaseButton" unique_id=613011183]
 title = "Open a File"
 initial_position = 2
 size = Vector2i(400, 400)
@@ -339,7 +339,7 @@ access = 2
 filters = PackedStringArray("*.db")
 use_native_dialog = true
 
-[node name="currentPath" type="Label" parent="settingsWindow"]
+[node name="currentPath" type="Label" parent="settingsWindow" unique_id=550407167]
 anchors_preset = -1
 anchor_top = 0.2
 anchor_right = 1.0
@@ -348,7 +348,7 @@ text = "Current Database Path: "
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="backButton" type="Button" parent="settingsWindow"]
+[node name="backButton" type="Button" parent="settingsWindow" unique_id=117336980]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.85

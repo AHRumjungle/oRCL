@@ -30,7 +30,6 @@ func _ready() -> void:
 		printerr("No Persistant Object")
 		return
 	
-	print(DB.persistant)
 	
 	if DB.persistant.has(stateKey):
 		

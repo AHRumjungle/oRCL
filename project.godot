@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="oRCL"
 config/description="A simple logging app to log the rollercoasters and rides you have been on"
-config/version="0.1.0"
+config/version="0.2.0"
 run/main_scene="uid://b5mle6v2ffe1u"
 config/features=PackedStringArray("4.6", "Mobile")
 boot_splash/bg_color=Color(0, 0, 0, 1)
